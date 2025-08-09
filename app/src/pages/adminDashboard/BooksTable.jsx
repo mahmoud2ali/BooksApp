@@ -76,7 +76,7 @@ export default function BooksTable() {
                             <td>{book.category}</td>
 
                             <td className='text-center'>
-                                <div className='d-flex flex-column-sm gap-1 align-items-center'>
+                                <div className='d-flex flex-sm-row flex-column justify-content-around gap-1'>
                                     <Button variant='btn btn-outline-danger btn-sm' onClick={(e) => deleteBook(e, book.id)}>Delete</Button>
                                     <Button as={Link} to={`edit-book/${book.id}`} variant='btn btn-outline-secondary btn-sm'>Edit</Button>
                                 </div>

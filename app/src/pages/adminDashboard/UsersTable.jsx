@@ -28,6 +28,31 @@ export default function UsersTable() {
     }
 
 
+    var toggelRole =(e, id) =>{
+        e.preventDefault();
+
+        if(window.confirm("Are you sure you want to toogle this user's role? ")){
+            const user = users.find(u =>u.id === id);
+            if(user)
+            {
+                // console.log("user found: ", user);
+                user.admin = !user.admin;
+                
+                axios.put(`http://localhost:3000/users/${id}`, user)
+                .then(()=>{
+                    setUsers(prevUsers =>
+                        prevUsers.map(u => u.id === id ? user : u)
+                    );
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+
+                alert("success!")
+            }
+        }
+            
+    }
 
     useEffect(()=>{
         axios.get("http://localhost:3000/users")
@@ -55,7 +80,7 @@ export default function UsersTable() {
                         <th>ID</th>
                         <th>User Name</th>
                         <th>Role</th>
-                        <th>Action</th>
+                        <th width="120px">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,8 +90,14 @@ export default function UsersTable() {
                             <td>{user.username}</td>
                             <td>{user.admin? "admin": "user"}</td>
                             <td className='text-center'>
-                                <Button variant='btn btn-outline-danger btn-sm w-75' onClick={(e) => deleteUser(e, user.id)}>Delete</Button>
+                                <div className='d-flex flex-sm-row flex-column justify-content-around gap-1'>
+                                    <Button variant='btn btn-outline-danger btn-sm ' onClick={e => deleteUser(e, user.id)}>Delete</Button>
+                                    <Button variant='btn btn-outline-secondary btn-sm ' onClick={ e => toggelRole(e, user.id)}>Toggel</Button>
+                                </div>
                             </td>
+                            {/* <td className='text-center'>
+                                <Button variant='btn btn-outline-danger btn-sm w-75' onClick={(e) => deleteUser(e, user.id)}>Delete</Button>
+                            </td> */}
                         </tr>
                         ))}
                 </tbody>
