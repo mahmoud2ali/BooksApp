@@ -11,3 +11,82 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+
+/* u can use this  dont change vraiables */
+
+:root{
+  --primary-color: #e2e2e2;
+  --secondary-color: #df0139;
+  --black :#1e1e27;
+  --black-light:#28242a;
+
+}
+
+
+/* For          my task     Dont change it     */
+.bgColor{
+ background-color: var(--black) !important;
+ color: var(--primary-color) !important;
+
+}
+.btnRed{
+  background-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
+}
+.textWhite{
+  color: var(--primary-color) !important;
+}
+.bgimg{
+  background-image: url('.//../Assets/bg.jpg');
+
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  
+}
+.btnAll{
+    background-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
+  width: fit-content !important;
+
+}
+
+.imges{
+  width: 100%;
+  height: 60vh;
+ 
+  
+  object-fit: cover;
+}
+.btnwhite{
+  background-color: var(--primary-color) !important;
+  color: var(--secondary-color) !important;
+}
+
+
+.fotbg{
+  background-color: var(--black-light) !important;
+  color: var(--secondary-color) !important;
+  position: relative;
+  margin-top: 30px;
+}
+.nh{
+  height: 50vh;
+}
+
+.footerTxt{
+  color: var(--primary-color);
+
+}
+.footerRed{
+  color: var(--secondary-color);
+}
+.flex-grow-1 {
+  flex: 1;
+}
+
+/*Upper code     for my home ,navbar ,footer style    please dont change it                      */
