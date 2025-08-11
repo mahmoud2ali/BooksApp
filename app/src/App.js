@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AdminDashboard from "./Componants/adminDashboard/AdminDashboard";
 import UsersTable from "./Componants/adminDashboard/BooksTable";
@@ -10,6 +10,9 @@ import SharedNav from "./Componants/SharedNav";
 import Landing from "./Componants/Landing/Landing";
 import NotFound from "./Componants/NotFound";
 import  SharedFooter from "./Componants/Sharedfooter";
+
+import LoginForm from "./Componants/Form/LoginForm.jsx";
+import RegisterForm from "./Componants/Form/RegisterForm.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +25,9 @@ function App() {
 
      
       <Routes>
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
+
         {/* Public Routes */}
         <Route path="/" element={<Landing/>} />
         <Route path="*" element={<NotFound/>} />

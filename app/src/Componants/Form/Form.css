@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+:root{
+
+    /* special style */
+    --bgPage: url('../../../Assets/download.jpeg');
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fontFamily);
+}
+.formCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: var(--bgPage);
+    /* background-repeat: repeat; */
+}
+.wrapper{
+    background-color: transparent;
+    border: 2px solid var(--BorderColor);
+    box-shadow: var(--shadowBtn);
+    backdrop-filter: blur(30px);
+    width: 420px;
+    color: var(--textColor);
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1{
+    text-align: center;
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    color: var(--textColor);
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid var(--BorderColor);
+    border-radius: 40px;
+    padding: 20px 45px 20px 20px;
+    font-size: 16px;
+}
+
+.input-box input::placeholder {
+    color: var(--textColor);
+}
+
+.input-box .icons{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    transform: rotateY(-45);
+}
+
+.wrapper .forgot{
+    display: flex;
+    justify-content: space-between;
+    margin:20px 0;
+}
+
+.wrapper .forgot label input{
+    accent-color: var(--textColor);
+}
+
+.wrapper .forgot a, .wrapper .link a{
+    color: var(--textColor);
+    text-decoration: none;
+}
+.wrapper .forgot a:hover, .wrapper .link a:hover{
+    text-decoration: underline;
+}
+
+.wrapper button{
+    width: 100%;
+    height: 45px;
+    background-color: var(--bgBtn);
+    border: none;
+    outline: none;
+    box-shadow: var(--shadowBtn);
+    cursor: pointer;
+    color: var(--txtBtn);
+    font-weight: var(--fontWBtn);
+    border-radius: 40px;
+    font-size: 16px;
+}
+.wrapper button:hover{
+    background-color: var(--bgBtnHover);
+    color: var(--txtBtnHover);
+    transition: 0.2s;
+}
+
+.wrapper .link{
+    font-size: 15px;
+    text-align: center;
+    margin: 20px;
+}
+
+.wrapper .input-box span{
+    color: var(--errorColor);
+}
+
+.toast .error{
+    background-color: var(--bgErrMsg);
+    color: var(--txtMsg);
+}
+.toast .success{
+    background-color: var(--bgSeccMsg);
+    color: var(--txtMsg);
+}
+

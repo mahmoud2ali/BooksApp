@@ -23,6 +23,22 @@ code {
   --black :#1e1e27;
   --black-light:#28242a;
 
+  /* global login-register style */
+    --fontFamily: "Libertinus Serif", serif;
+    --fontWBtn: 700;
+    --shadowBtn: 0 0 10px rgba(0, 0, 0, .3);
+    --bgBtn: #fff; 
+    --txtBtn: black;
+    --bgBtnHover: #e20e0e;
+    --txtBtnHover: #fff;
+
+    /* special login-register style */
+    --textColor: #fff;
+    --errorColor: red;
+    --BorderColor: rgba(255,255,255,.2);
+    --bgErrMsg: red;
+    --txtMsg: #fff;
+    --bgSeccMsg: green;
 }
 
 

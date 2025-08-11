@@ -1,0 +1,100 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "admin": false
+    },
+    {
+      "id": "3",
+      "username": "jane_smith",
+      "password": "mypassword",
+      "admin": true
+    },
+    {
+      "id": "4",
+      "username": "jane_smith",
+      "password": "mypassword",
+      "admin": false
+    },
+    {
+      "id": "5",
+      "username": "jane_smith",
+      "password": "mypassword",
+      "admin": false
+    },
+    {
+      "id": "6",
+      "username": "jane_smith",
+      "password": "mypassword",
+      "admin": false
+    }
+  ],
+  "books": [
+    {
+      "id": "1",
+      "title": "The Silent Patient ",
+      "description": "A psychological thriller about a woman who stops speaking after a shocking act of violence.",
+      "author": "Alex Michaelides",
+      "year": 2019,
+      "category": "Thriller"
+    },
+    {
+      "id": "2",
+      "title": "Atomic Habits",
+      "description": "A guide to building good habits and breaking bad ones with small daily improvements.",
+      "author": "James Clear",
+      "year": 2018,
+      "category": "Self-Help"
+    },
+    {
+      "id": "3",
+      "title": "Project Hail Mary",
+      "description": "A lone astronaut must save Earth from disaster while uncovering unexpected allies in space.",
+      "author": "Andy Weir",
+      "year": 2021,
+      "category": "Science Fiction"
+    },
+    {
+      "id": "4",
+      "title": "To Kill a Mockingbird",
+      "description": "A novel about racial injustice and moral growth in the Deep South.",
+      "author": "Harper Lee",
+      "year": 1960,
+      "category": "Classic"
+    },
+    {
+      "id": "5",
+      "title": "The Silent Patient ",
+      "description": "A psychological thriller about a woman who stops speaking after a shocking act of violence.",
+      "author": "Alex Michaelides",
+      "year": 2019,
+      "category": "Thriller"
+    },
+    {
+      "id": "6",
+      "title": "Atomic Habits",
+      "description": "A guide to building good habits and breaking bad ones with small daily improvements.",
+      "author": "James Clear",
+      "year": 2018,
+      "category": "Self-Help"
+    },
+    {
+      "id": "7",
+      "title": "Project Hail Mary",
+      "description": "A lone astronaut must save Earth from disaster while uncovering unexpected allies in space.",
+      "author": "Andy Weir",
+      "year": 2021,
+      "category": "Science Fiction"
+    },
+    {
+      "id": "8",
+      "title": "To Kill a Mockingbird",
+      "description": "A novel about racial injustice and moral growth in the Deep South.",
+      "author": "Harper Lee",
+      "year": 1960,
+      "category": "Classic"
+    }
+  ]
+}
