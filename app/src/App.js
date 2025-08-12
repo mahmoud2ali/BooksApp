@@ -1,27 +1,28 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Router } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import AdminDashboard from "./Componants/adminDashboard/AdminDashboard";
-import UsersTable from "./Componants/adminDashboard/BooksTable";
+import AdminDashboard from "./Componants/adminDashboard/AdminDashboard.jsx";
+import UsersTable from "./Componants/adminDashboard/BooksTable.jsx";
 import BooksTable from "./Componants/adminDashboard/UsersTable.jsx";
-import AddBookForm from "./Componants/adminDashboard/AddBookForm";
-import EditBookForm from "./Componants/adminDashboard/EditBookForm";
-import SharedNav from "./Componants/SharedNav";
-import Landing from "./Componants/Landing/Landing";
-import NotFound from "./Componants/NotFound";
-import  SharedFooter from "./Componants/Sharedfooter";
+import AddBookForm from "./Componants/adminDashboard/AddBookForm.jsx";
+import EditBookForm from "./Componants/adminDashboard/EditBookForm.jsx";
+import SharedNav from "./Componants/SharedNav.jsx";
+import Landing from "./Componants/Landing/Landing.jsx";
+import NotFound from "./Componants/NotFound.jsx";
+import  SharedFooter from "./Componants/Sharedfooter.jsx";
 
 import LoginForm from "./Componants/Form/LoginForm.jsx";
 import RegisterForm from "./Componants/Form/RegisterForm.jsx";
-import About from "./Componants/about/About.jsx"
+function Layout() {
 
-function App() {
+  const location = useLocation();
+  const hideLayout = location.pathname === "/login" || location.pathname === "/register";
+
   return (
-    <BrowserRouter>
       <div className="d-flex flex-column min-vh-100">
 
      
-      <SharedNav />
+      {!hideLayout && <SharedNav />}
 
       <div className="flex-grow-1">
 
@@ -44,19 +45,19 @@ function App() {
             <Route path="edit-book/:id" element={<EditBookForm />} />
           </Route>
         </Route>
-
-
-        <Route path="/about" element={<About />} />
-
-        
       </Routes>
        </div>
 
      
-      <SharedFooter/>
+      {!hideLayout && <SharedFooter />}
        </div>
+  );
+}
+function App(){
+  return(
+    <BrowserRouter>
+      <Layout />
     </BrowserRouter>
   );
 }
-
 export default App;
