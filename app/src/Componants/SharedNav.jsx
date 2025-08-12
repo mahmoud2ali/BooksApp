@@ -2,15 +2,24 @@ import {
   Container,
   Nav,
   Navbar,
-  Button,
-  Col,
-  Row,
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
+import LoginRegster from "./LoginAndRegister/LoginRegster";
+import Logout from "./LogOut/Logout";
+import { useState, useEffect } from "react";
 
 function SharedNav() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   return (
     <Navbar expand="lg" className="custom-navbar bgColor textWhite">
       <Container>
@@ -22,7 +31,6 @@ function SharedNav() {
           BookHup
         </NavLink>
 
-      
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-danger" />
 
         <Navbar.Collapse id="basic-navbar-nav">
@@ -47,14 +55,17 @@ function SharedNav() {
               About
             </NavLink>
 
-            <NavLink
-              to="/admin-dashboard"
-              className={({ isActive }) =>
-                isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
-              }
-            >
-              Dashboard
-            </NavLink>
+            {/* admin feature            */}
+            {user?.admin && (
+              <NavLink
+                to="/admin-dashboard"
+                className={({ isActive }) =>
+                  isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
+                }
+              >
+                Dashboard
+              </NavLink>
+            )}
 
             <NavLink
               to="/product"
@@ -65,31 +76,27 @@ function SharedNav() {
               Product
             </NavLink>
 
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
+              }
+            >
+              Contact Us
+            </NavLink>
+
+            <NavLink
+              to="/favoriteBook"
+              className={({ isActive }) =>
+                isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
+              }
+            >
+              Favorite Books
+            </NavLink>
           </Nav>
 
-          
-          <Row className="ms-auto justify-content-center justify-content-lg-end">
-            <Col xs="auto">
-              <NavLink to="/login" style={{ textDecoration: "none" }}>
-                <Button
-                  variant="danger"
-                  className="text-white fw-bold px-4 py-2 rounded-pill"
-                >
-                  Login
-                </Button>
-              </NavLink>
-            </Col>
-            <Col xs="auto">
-              <NavLink to="/register" style={{ textDecoration: "none" }}>
-                <Button
-                  variant="danger"
-                  className="text-white fw-bold px-4 py-2 rounded-pill"
-                >
-                  Register
-                </Button>
-              </NavLink>
-            </Col>
-          </Row>
+  
+          {user ? <Logout onLogout={() => setUser(null)} /> : <LoginRegster />}
         </Navbar.Collapse>
       </Container>
     </Navbar>
