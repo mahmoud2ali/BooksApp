@@ -64,6 +64,15 @@ function SharedNav() {
             >
               Product
             </NavLink>
+            
+             <NavLink
+              to="/contact us"
+              className={({ isActive }) =>
+                isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
+              }
+            >
+              contact us
+            </NavLink>
 
           </Nav>
 
