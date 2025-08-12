@@ -85,14 +85,17 @@ function SharedNav() {
               Contact Us
             </NavLink>
 
-            <NavLink
-              to="/favoriteBook"
-              className={({ isActive }) =>
-                isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
-              }
-            >
-              Favorite Books
-            </NavLink>
+            {/* login featur  */}
+            {user && (
+              <NavLink
+                to="/favoriteBook"
+                className={({ isActive }) =>
+                  isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
+                }
+              >
+                Favorite Books
+              </NavLink>
+            )}
           </Nav>
 
   
