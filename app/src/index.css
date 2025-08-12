@@ -11,6 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 /* u can use this  dont change vraiables */
 
 :root{
@@ -103,6 +104,7 @@ code {
 
 /*Upper code     for my home ,navbar ,footer style    please dont change it                      */
 
+
 /* in GridBooks books-section style start*/
 /* books-section style */
 .books-section{
@@ -159,6 +161,10 @@ code {
 .downloadBtn:hover{
   color: #eba756 !important;
 }
+
+
+/* in GridBooks books-section style end*/
+
 
 /* in GridBooks books-section style end*/
 
