@@ -11,10 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-
-
 /* u can use this  dont change vraiables */
 
 :root{
@@ -106,3 +102,63 @@ code {
 }
 
 /*Upper code     for my home ,navbar ,footer style    please dont change it                      */
+
+/* in GridBooks books-section style start*/
+/* books-section style */
+.books-section{
+  background-color: #f7f7f7;
+  color: #1a1668;
+}
+/* SingleBook style ==> card*/
+.link{
+  color: #1a1668;
+}
+.link:hover{
+  color: #eba756;
+  cursor: pointer;
+}
+.p{
+  color: #eba756;
+}
+/* star list style */
+.stars li{
+  list-style-type: none;
+  color:  #ebc856;
+}
+/* Favorit boxs */
+.favIcon{
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.mycard{
+  position: relative;
+}
+.FavBox{
+  position: absolute;
+  content: "";
+  top: 25px;
+  right: 25px;
+  background-color: white;
+  box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.2);
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+/* download button */
+.downloadBtn{
+  width: 190px;
+  margin: auto;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  color: white;
+}
+.downloadBtn:hover{
+  color: #eba756 !important;
+}
+
+/* in GridBooks books-section style end*/
+
