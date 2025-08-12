@@ -27,17 +27,17 @@ code {
     --fontFamily: "Libertinus Serif", serif;
     --fontWBtn: 700;
     --shadowBtn: 0 0 10px rgba(0, 0, 0, .3);
-    --bgBtn: #fff; 
-    --txtBtn: black;
-    --bgBtnHover: #e20e0e;
+    --bgBtn: #e2e2e2; 
+    --txtBtn: #1e1e27;
+    --bgBtnHover: #df0139;
     --txtBtnHover: #fff;
 
     /* special login-register style */
-    --textColor: #fff;
-    --errorColor: red;
+    --textColor: #e2e2e2;
+    --errorColor: #df0139;
     --BorderColor: rgba(255,255,255,.2);
-    --bgErrMsg: red;
-    --txtMsg: #fff;
+    --bgErrMsg: #df0139;
+    --txtMsg: #e2e2e2;
     --bgSeccMsg: green;
 }
 

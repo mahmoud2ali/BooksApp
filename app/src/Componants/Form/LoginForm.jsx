@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import db from '../Json/db.json';
-// import { FaLock, FaUser } from "react-icons/fa6";
+import { FaLock, FaUser } from "react-icons/fa6";
 import './Form.css'
 import { ToastContainer, Toast } from 'react-bootstrap';
+import axios from 'axios';
 
 function LoginForm(){
+    // const [apiData, setapiData] = useState([]);
     const{users} = db
+
+    // useEffect(() => {
+    //     axios.get(`http://localhost:5000/users`)
+    //         .then((response) => {
+    //             console.log("response: " + apiData);
+    //             console.log("response data: " + response.data);
+    //             setData(response.data);
+    //         })
+    // }, [])
 
     const [data, setData] = useState({
         username: '', 
@@ -57,16 +68,12 @@ function LoginForm(){
     }
 
     const loginCheck = () => {
-        console.log(users);
-        console.log(data);
+        // console.log(users);
+        // console.log(data);
         
-        const userCheck = users.find(
-            user => user.username === data.username && user.password === data.password
-        );
-        console.log(userCheck);
+        console.log("result of search: " + searchUser(data.username));
         
-        if(userCheck){
-            // alert("successfully!")
+        if(searchUser(data.username)){
             const newToast = {
                 flag: true,
                 subtitle: 'Success message', 
@@ -75,7 +82,6 @@ function LoginForm(){
             }
             setToast(newToast);
         }else{
-            // alert("error happens!")
             const newToast = {
                 flag: true,
                 subtitle: 'Error message', 
@@ -83,6 +89,21 @@ function LoginForm(){
                 type: 'error',
             }
             setToast(newToast);
+        }
+    }
+    async function searchUser(username) {
+        try{
+            const res = await axios.get(`http://localhost:5000/users?username=${username}`)
+        if (res.data.length > 0) {
+            console.log("User found:", res.data[0]);
+            return true;
+        } else {
+            console.log("User not found");
+            return false;
+        }
+        }catch(err){
+            console.error(err);
+            return false;
         }
     }
 
@@ -94,19 +115,19 @@ function LoginForm(){
 
                     <div className="input-box">
                         <input onChange={handleChange} type="text" name="username" value={data.username} placeholder="Username" />
-                        {/* <FaUser className='icons'/> */}
+                        <FaUser className='icons'/>
                         {errors.username && (<span className="error-msg">{errors.username}</span>)}
                     </div>
 
                     <div className="input-box">
                         <input onChange={handleChange} type="password" name="password" value={data.password} placeholder="Password" />
-                        {/* <FaLock className='icons'/> */}
+                        <FaLock className='icons'/>
                         {errors.password && (<span className="error-msg">{errors.password}</span>)}
                     </div>
 
                     <div className="forgot">
                         <label><input onChange={handleChange} type="checkbox" name="remmberMe" />Remmber me</label>
-                        <a href="#" target="_self">Forgot passwor?</a>
+                        <a href="#" target="_self">Forgot password?</a>
                     </div>
 
                     <button type="submit">Login</button>

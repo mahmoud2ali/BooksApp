@@ -3,7 +3,7 @@
 :root{
 
     /* special style */
-    --bgPage: url('../../../Assets/download.jpeg');
+    --bgPage: url('../../../Assets/bg.jpg');
 }
 *{
     margin: 0;

@@ -2,11 +2,12 @@ import './Form.css'
 import { useState } from 'react';
 import { FaUser, FaLock } from "react-icons/fa6";
 import { MdEmail } from 'react-icons/md';
-import db from '../Json/db.json';
+// import db from '../Json/db.json';
 import { Toast, ToastContainer } from 'react-bootstrap';
+import axios from 'axios';
 
 function RegisterForm(){
-    const{users} = db
+    // const{users} = db
 
     const [data, setData] = useState({
         username: '',
@@ -30,16 +31,12 @@ function RegisterForm(){
         type: ''
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) => {        
         e.preventDefault();
         const newErrors = validation(data);
         setErrors(newErrors);
         if(Object.keys(newErrors).length === 0){
-            // console.log('successfully!');
             addUser()
-        }else{
-            ///////////errors 
-            console.log('failed');            
         }
     };
 
@@ -75,11 +72,10 @@ function RegisterForm(){
         return errors;
     }
 
-    const addUser = () => {
-        const findUser = users.find(user => user.username === data.username)
+    const addUser = async () => {
         // console.log(findUser);
-        if(findUser){
-            const newToast = {
+        if(await searchUser(data.username)){
+                const newToast = {
                 flag: true, 
                 subtitle: 'Error message',
                 title: 'This username already has an account.',
@@ -87,8 +83,9 @@ function RegisterForm(){
             }
             setToast(newToast)
         }else{
-            // add user in json file
-            users.push(data);
+            await axios.post("http://localhost:5000/users", data)
+                .then(res => console.log(res.data))
+                .catch(err => console.error(err));
             const newToast = {
                 flag: true,
                 subtitle: 'Success message', 
@@ -99,6 +96,22 @@ function RegisterForm(){
         }
     }
 
+    async function searchUser(username) {
+        try{
+            const res = await axios.get(`http://localhost:5000/users?username=${username}`)
+        if (res.data.length > 0) {
+            console.log("User found:", res.data[0]);
+            return true;
+        } else {
+            console.log("User not found");
+            return false;
+        }
+        }catch(err){
+            console.error(err)
+            return false;
+        }
+}
+
     return(
         <div className='formCont'>
             <div className="wrapper">
@@ -107,25 +120,25 @@ function RegisterForm(){
 
                     <div className="input-box">
                         <input onChange={handleChange} type="text" name="username" value={data.username} placeholder="Username" />
-                        {/* <FaUser className='icons'/> */}
+                        <FaUser className='icons'/>
                         {errors.username && (<span className="error-msg">{errors.username}</span>)}
                     </div>
 
                     <div className="input-box">
                         <input onChange={handleChange} type="text" name="email" value={data.email} placeholder="Email" />
-                        {/* <MdEmail className='icons'/> */}
+                        <MdEmail className='icons'/>
                         {errors.email && (<span className="error-msg">{errors.email}</span>)}
                     </div>
 
                     <div className="input-box">
                         <input onChange={handleChange} type="password" name="password" value={data.password} placeholder="Password" />
-                        {/* <FaLock className='icons'/> */}
+                        <FaLock className='icons'/>
                         {errors.password && (<span className="error-msg">{errors.password}</span>)}
                     </div>
 
                     <div className="input-box">
                         <input onChange={handleChange} type="password" name="confirmPass" value={data.confirmPass} placeholder="confirm password" />
-                        {/* <FaLock className='icons'/> */}
+                        <FaLock className='icons'/>
                         {errors.confirmPass && (<span className="error-msg">{errors.confirmPass}</span>)}
                     </div>
 
