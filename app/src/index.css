@@ -56,12 +56,12 @@ code {
   color: var(--primary-color) !important;
 }
 .bgimg{
-  background-image: url('.//../Assets/bg.jpg');
-
-  height: 80vh;
+   background-image: url('./../Assets/bg.jpg');
   background-size: cover;
   background-position: center;
   width: 100%;
+  min-height: 80vh; /* Instead of fixed height*/
+  height: auto;
   
 }
 .btnAll{
@@ -103,6 +103,16 @@ code {
 }
 .flex-grow-1 {
   flex: 1;
+}
+
+ .Aboutbgimg{ 
+   background-image: url('./../Assets/m.jpeg');
+  background-size: cover;
+  background-position: center;
+  /* width: 100%; */
+  min-height: 80vh; /* Instead of fixed height*/
+  height: auto;
+  
 }
 
 /*Upper code     for my home ,navbar ,footer style    please dont change it                      */

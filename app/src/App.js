@@ -13,6 +13,8 @@ import  SharedFooter from "./Componants/Sharedfooter";
 
 import LoginForm from "./Componants/Form/LoginForm.jsx";
 import RegisterForm from "./Componants/Form/RegisterForm.jsx";
+import About from "./Componants/about/About.jsx"
+
 function App() {
   return (
     <BrowserRouter>
@@ -42,6 +44,11 @@ function App() {
             <Route path="edit-book/:id" element={<EditBookForm />} />
           </Route>
         </Route>
+
+
+        <Route path="/about" element={<About />} />
+
+        
       </Routes>
        </div>
 

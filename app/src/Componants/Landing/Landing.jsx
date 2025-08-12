@@ -1,13 +1,13 @@
 
 import Home from "../Home/Home"
-
+import About from "../about/About"
 
 function Landing() {
     return (
         <div>
             {/* guest view */}
            <Home/>
-           {/* <About/> will be added*/}
+           {/* {<About/>} */}
            
         </div>
     )
