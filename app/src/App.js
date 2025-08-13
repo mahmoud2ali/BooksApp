@@ -1,3 +1,4 @@
+// @ts-ignore
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
@@ -14,6 +15,8 @@ import  SharedFooter from "./Componants/Sharedfooter";
 import LoginForm from "./Componants/Form/LoginForm.jsx";
 import RegisterForm from "./Componants/Form/RegisterForm.jsx";
 import GridBooks from "./pages/ViewBooks/GridBooks";
+import BookDetails from "./pages/ViewBooks/BookDetails";
+import FavoriteBooks from "./pages/FavoriteBooks";
 function App() {
   return (
     <BrowserRouter>
@@ -43,7 +46,10 @@ function App() {
             <Route path="edit-book/:id" element={<EditBookForm />} />
           </Route>
         </Route>
-        <Route path="/GridBooks" element={<GridBooks />} />
+        {/* GridBooks */}
+        <Route path="/product" element={<GridBooks />} />
+        <Route path="/books/:id" element={<BookDetails/>} />
+        <Route path="/Favorites" element={<FavoriteBooks />} />
       </Routes>
        </div>
 

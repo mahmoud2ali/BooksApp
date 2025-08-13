@@ -109,23 +109,18 @@ code {
 /* books-section style */
 .books-section{
   background-color: #f7f7f7;
-  color: #1a1668;
+  color: black;
 }
 /* SingleBook style ==> card*/
 .link{
-  color: #1a1668;
+  color: black;
 }
 .link:hover{
-  color: #eba756;
+  color:rgb(255, 39, 39);
   cursor: pointer;
 }
 .p{
   color: #eba756;
-}
-/* star list style */
-.stars li{
-  list-style-type: none;
-  color:  #ebc856;
 }
 /* Favorit boxs */
 .favIcon{
@@ -151,20 +146,56 @@ code {
   -o-border-radius: 5px;
 }
 /* download button */
-.downloadBtn{
+.downloadBtn,
+.detBtn{
   width: 190px;
   margin: auto;
   margin-top: -20px;
   margin-bottom: 10px;
   color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 .downloadBtn:hover{
-  color: #eba756 !important;
+  color: rgb(255, 39, 39) !important;
 }
-
-
 /* in GridBooks books-section style end*/
+/* BookDetails style start*/
+.book-info span{
+  color: #bdb3b3;
+  font-size: 17px;
+  font-weight: 600;
+}
+.book-info h5{
+  color: var(--black);
+  font-size: 20px;
+  font-weight: 700;
+}
+.desc{
+  color: #9c9999;
+  line-height: 1.2;
+  font-size: 20px;
+  font-weight: 200;
+}
+.detBtn:hover{
+  color: black !important;
+}
+.FavBox-2{
+  background-color: white;
+  box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.2);
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+/* BookDetails style end*/
 
-
-/* in GridBooks books-section style end*/
 
