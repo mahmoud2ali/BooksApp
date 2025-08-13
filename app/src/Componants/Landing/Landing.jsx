@@ -8,13 +8,6 @@ function Landing() {
         <div>
             {/* guest view */}
            <Home/>
-// <<<<<<< NavbarAndLogout
-           
-           {/* <About/> will be added*/}
-// =======
-           {/* {<About/>} */}
-// >>>>>>> main
-           
         </div>
     )
 }

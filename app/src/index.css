@@ -86,7 +86,7 @@ code {
   background-color: var(--black-light) !important;
   color: var(--secondary-color) !important;
   position: relative;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 .nh{
   height: 50vh;

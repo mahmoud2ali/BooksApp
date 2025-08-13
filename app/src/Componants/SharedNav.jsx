@@ -70,7 +70,7 @@ function SharedNav() {
               }
             >
               Product
-           
+            </NavLink>
             <NavLink
               to="/Favorites"
               className={({ isActive }) =>
