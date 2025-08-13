@@ -1,0 +1,8 @@
+###SUMMARY
+- change navbar Accesability if user is admin he can show dashboard 
+  unless can see home and about and contact us 
+- if user loged in can see favorite books
+
+-if user loged in can see logout button 
+-if user clicked on log out rout him to home
+
