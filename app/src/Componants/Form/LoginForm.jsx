@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FaLock} from "react-icons/fa6";
 import './Form.css'
 import { ToastContainer, Toast } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { MdEmail } from 'react-icons/md';
+import { UserContext } from "../../context/UserContext";
 
 function LoginForm(){
     const [apiData, setApiData] = useState({email: '', password: ''})
     const navigate = useNavigate()
-
+    const {setUser} = useContext(UserContext);
     const [data, setData] = useState({
         email: '', 
         password: ''
@@ -83,6 +84,7 @@ function LoginForm(){
                 // localStorage.setItem("admin", admin)
                 console.log(matchUser);
                 localStorage.setItem("user", JSON.stringify(matchUser));
+                setUser(JSON.stringify(matchUser));
                 navigate('/', {replace: true})
             }else{
                 const newToast = {
@@ -108,9 +110,10 @@ function LoginForm(){
                 type: 'error',
             }
             setToast(newToast);
-            localStorage.setItem("username", "Guest")
-            localStorage.setItem("email", '')
-            localStorage.setItem("admin", false)
+            // localStorage.setItem("username", "Guest")
+            // localStorage.setItem("email", '')
+            // localStorage.setItem("admin", false)
+            localStorage.setItem("user", null);
             navigate('/', {replace: true})
     }
 

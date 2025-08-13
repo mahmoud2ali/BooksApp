@@ -4,13 +4,17 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App'
 import { FavoritesProvider } from './context/FavoritesContext';
+import { UserProvider } from "./context/UserContext";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <FavoritesProvider>
-    <React.StrictMode>
-          <App />
-    </React.StrictMode>
+    <UserProvider>    
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    </UserProvider>
 </FavoritesProvider>
 );
 
