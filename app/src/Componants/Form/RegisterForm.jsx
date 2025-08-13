@@ -2,13 +2,17 @@ import './Form.css'
 import { useState } from 'react';
 import { FaUser, FaLock } from "react-icons/fa6";
 import { MdEmail } from 'react-icons/md';
-// import db from '../Json/db.json';
 import { Toast, ToastContainer } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function RegisterForm(){
-    // const{users} = db
+    const [apiData, setApiData] = useState({
+        username: '',
+        email: '', 
+        password: '',
+        admin: false
+    })
     const navigate = useNavigate()
 
     const [data, setData] = useState({
@@ -34,7 +38,8 @@ function RegisterForm(){
         type: ''
     });
 
-    const handleSubmit = (e) => {        
+    const handleSubmit = (e) => {    
+        localStorage.clear()    
         e.preventDefault();
         const newErrors = validation(data);
         setErrors(newErrors);
@@ -76,8 +81,12 @@ function RegisterForm(){
     }
 
     const addUser = async () => {
-        // console.log(findUser);
-        if(await searchUser(data.username)){
+        const response =await axios.get(`http://localhost:5000/users`)
+        const users = response.data 
+        setApiData(users)
+        const matchUser = users.find((user) => user.email == data.email)
+
+        if(matchUser){
                 const newToast = {
                 flag: true, 
                 subtitle: 'Error message',
@@ -89,13 +98,13 @@ function RegisterForm(){
             await axios.post("http://localhost:5000/users", data)
                 .then(res => console.log(res.data))
                 .catch(err => console.error(err));
-            const newToast = {
-                flag: true,
-                subtitle: 'Success message', 
-                title: 'After few seconds, you will go to the home page',
-                type: 'success',
-            }
-            setToast(newToast)
+            // const newToast = {
+            //     flag: true,
+            //     subtitle: 'Success message', 
+            //     title: 'After few seconds, you will go to the home page',
+            //     type: 'success',
+            // }
+            // setToast(newToast)
             localStorage.setItem("username", data.username)
             localStorage.setItem("email", data.email)
             localStorage.setItem("admin", data.admin)
@@ -104,22 +113,6 @@ function RegisterForm(){
             }, 2000)
         }
     }
-
-    async function searchUser(username) {
-        try{
-            const res = await axios.get(`http://localhost:5000/users?username=${username}`)
-        if (res.data.length > 0) {
-            console.log("User found:", res.data[0]);
-            return true;
-        } else {
-            console.log("User not found");
-            return false;
-        }
-        }catch(err){
-            console.error(err)
-            return false;
-        }
-}
 
     return(
         <div className='formCont'>

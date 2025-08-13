@@ -1,27 +1,17 @@
 import { useEffect, useState } from 'react';
-import db from '../Json/db.json';
-import { FaLock, FaUser } from "react-icons/fa6";
+import { FaLock} from "react-icons/fa6";
 import './Form.css'
 import { ToastContainer, Toast } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { MdEmail } from 'react-icons/md';
 
 function LoginForm(){
-    // const [apiData, setapiData] = useState([]);
-    const{users} = db
+    const [apiData, setApiData] = useState({email: '', password: ''})
     const navigate = useNavigate()
 
-    // useEffect(() => {
-    //     axios.get(`http://localhost:5000/users`)
-    //         .then((response) => {
-    //             console.log("response: " + apiData);
-    //             console.log("response data: " + response.data);
-    //             setData(response.data);
-    //         })
-    // }, [])
-
     const [data, setData] = useState({
-        username: '', 
+        email: '', 
         password: ''
     });
     const [errors, setErrors] = useState({});
@@ -41,6 +31,7 @@ function LoginForm(){
     });
 
     const handleSubmit = (e) => {
+        localStorage.clear()
         e.preventDefault();
         const newErrors = validation(data);
         setErrors(newErrors);
@@ -55,10 +46,10 @@ function LoginForm(){
 
     const validation = (data) => {
         const errors = {};
-        if(!data.username.trim()){
-            errors.username = 'Username is required.';
-        }else if(data.username.length < 4){
-            errors.username = 'Username must be at least 4 characters.';
+        if (!data.email) {
+            errors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+            errors.email = 'Email is invalid';
         }
 
         if(!data.password.trim()){
@@ -69,49 +60,41 @@ function LoginForm(){
         return errors;
     }
 
-    const loginCheck = () => {
-        // console.log(users);
-        // console.log(data);
-        
-        console.log("result of search: " + searchUser(data.username));
-        
-        if(searchUser(data.username)){
-            const newToast = {
-                flag: true,
-                subtitle: 'Success message', 
-                title: 'After few seconds, you will go to the home page',
-                type: 'success',
-            }
-            setToast(newToast);
-            localStorage.setItem("username", data.username)
-            localStorage.setItem("email", data.email)
-            localStorage.setItem("admin", data.admin)
-            setTimeout( () => { 
-                navigate('/', {replace: true});
-            }, 2000)
-        }else{
-            const newToast = {
-                flag: true,
-                subtitle: 'Error message', 
-                title: 'You entered the username/password incorrectly.',
-                type: 'error',
-            }
-            setToast(newToast);
-        }
-    }
-    async function searchUser(username) {
+    const loginCheck = async () => {
         try{
-            const res = await axios.get(`http://localhost:5000/users?username=${username}`)
-        if (res.data.length > 0) {
-            console.log("User found:", res.data[0]);
-            return true;
-        } else {
-            console.log("User not found");
-            return false;
-        }
-        }catch(err){
-            console.error(err);
-            return false;
+            const response = await axios.get(`http://localhost:5000/users`)
+            setApiData(response.data)
+        
+            const matchUser = apiData.find((user) => user.email == data.email && user.password == data.password)
+            // console.log(matchUser);
+            
+            if(matchUser){
+                // const newToast = {
+                //     flag: true,
+                //     subtitle: 'Success message', 
+                //     title: 'After few seconds, you will go to the home page',
+                //     type: 'success',
+                // }
+                // setToast(newToast);
+                
+                const {username, email, admin} = matchUser;
+                localStorage.setItem("username",username)
+                localStorage.setItem("email", email)
+                localStorage.setItem("admin", admin)
+                setTimeout( () => { 
+                    navigate('/', {replace: true});
+                }, 2000)
+            }else{
+                const newToast = {
+                    flag: true,
+                    subtitle: 'Error message', 
+                    title: 'You entered the email/password incorrectly.',
+                    type: 'error',
+                }
+                setToast(newToast);
+            }
+        }catch(e){
+            console.log(e.message)
         }
     }
 
@@ -130,7 +113,7 @@ function LoginForm(){
             localStorage.setItem("admin", false)
             setTimeout( () => { 
                 navigate('/', {replace: true});
-            }, 4000)
+            }, 5000)
     }
 
     return(
@@ -140,9 +123,9 @@ function LoginForm(){
                     <h1>Login</h1>
 
                     <div className="input-box">
-                        <input onChange={handleChange} type="text" name="username" value={data.username} placeholder="Username" />
-                        <FaUser className='icons'/>
-                        {errors.username && (<span className="error-msg">{errors.username}</span>)}
+                        <input onChange={handleChange} type="text" name="email" value={data.email} placeholder="Email" />
+                        <MdEmail className='icons'/>
+                        {errors.email && (<span className="error-msg">{errors.email}</span>)}
                     </div>
 
                     <div className="input-box">
