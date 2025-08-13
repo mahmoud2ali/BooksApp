@@ -5,15 +5,18 @@ import { MdEmail } from 'react-icons/md';
 // import db from '../Json/db.json';
 import { Toast, ToastContainer } from 'react-bootstrap';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterForm(){
     // const{users} = db
+    const navigate = useNavigate()
 
     const [data, setData] = useState({
         username: '',
         email: '', 
         password: '',
-        confirmPass: ''
+        confirmPass: '',
+        admin: false
     });
     const [errors, setErrors] = useState({});
     
@@ -89,10 +92,16 @@ function RegisterForm(){
             const newToast = {
                 flag: true,
                 subtitle: 'Success message', 
-                title: 'After 5 seconds, you will go to the home page',
+                title: 'After few seconds, you will go to the home page',
                 type: 'success',
             }
             setToast(newToast)
+            localStorage.setItem("username", data.username)
+            localStorage.setItem("email", data.email)
+            localStorage.setItem("admin", data.admin)
+            setTimeout( () => { 
+                navigate('/', {replace: true});
+            }, 2000)
         }
     }
 
