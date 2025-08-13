@@ -53,6 +53,13 @@
       "email": "mahmoud@email.com",
       "password": "1020301020",
       "admin": true
+    },
+    {
+      "id": "331b",
+      "username": "mahmoud ",
+      "email": "abc@em.com",
+      "password": "1020301020",
+      "admin": false
     }
   ],
   "books": [

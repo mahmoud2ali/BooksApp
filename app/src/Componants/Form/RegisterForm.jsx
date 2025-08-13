@@ -1,12 +1,16 @@
 import './Form.css'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { FaUser, FaLock } from "react-icons/fa6";
 import { MdEmail } from 'react-icons/md';
 import { Toast, ToastContainer } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from "../../context/UserContext";
 
 function RegisterForm(){
+
+    const {setUser} = useContext(UserContext);
+
     const [apiData, setApiData] = useState({
         username: '',
         email: '', 
@@ -111,7 +115,9 @@ function RegisterForm(){
             // localStorage.setItem("email", data.email)
             // localStorage.setItem("admin", data.admin)
             localStorage.setItem("user", JSON.stringify(data));
+            setUser(JSON.stringify(matchUser));
             navigate('/', {replace: true})
+            window.location.reload();
             // navigate('/', {replace: true});
         }
     }

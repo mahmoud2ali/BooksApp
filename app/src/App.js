@@ -32,11 +32,13 @@ function Layout() {
 
   // const dash = location.pathname === "/admin-dashboard"
 
+
   const {user} = useContext(UserContext);
   
+
   console.log("user: ", user);
 
-
+  
 
 
   return (

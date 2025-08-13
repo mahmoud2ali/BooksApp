@@ -10,7 +10,9 @@ import { UserContext } from "../../context/UserContext";
 function LoginForm(){
     const [apiData, setApiData] = useState({email: '', password: ''})
     const navigate = useNavigate()
+    
     const {setUser} = useContext(UserContext);
+
     const [data, setData] = useState({
         email: '', 
         password: ''
@@ -86,6 +88,7 @@ function LoginForm(){
                 localStorage.setItem("user", JSON.stringify(matchUser));
                 setUser(JSON.stringify(matchUser));
                 navigate('/', {replace: true})
+                window.location.reload();
             }else{
                 const newToast = {
                     flag: true,
