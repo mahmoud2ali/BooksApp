@@ -62,10 +62,10 @@ function LoginForm(){
 
     const loginCheck = async () => {
         try{
-            const response = await axios.get(`http://localhost:5000/users`)
+            const response = await axios.get(`http://localhost:3000/users`)
             setApiData(response.data)
-        
-            const matchUser = apiData.find((user) => user.email == data.email && user.password == data.password)
+            const users = response.data;
+            const matchUser = users.find((user) => user.email == data.email && user.password == data.password)
             // console.log(matchUser);
             
             if(matchUser){
@@ -77,10 +77,12 @@ function LoginForm(){
                 // }
                 // setToast(newToast);
                 
-                const {username, email, admin} = matchUser;
-                localStorage.setItem("username",username)
-                localStorage.setItem("email", email)
-                localStorage.setItem("admin", admin)
+                // const {username, email, admin} = matchUser;
+                // localStorage.setItem("username",username)
+                // localStorage.setItem("email", email)
+                // localStorage.setItem("admin", admin)
+                console.log(matchUser);
+                localStorage.setItem("user", JSON.stringify(matchUser));
                 navigate('/', {replace: true})
             }else{
                 const newToast = {

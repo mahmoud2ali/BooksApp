@@ -42,13 +42,13 @@ export default function BooksTable() {
 
   return (
     <>
-        <div className='my-2 text-center mx-auto '>
+        {/* <div className='my-2 text-center mx-auto '>
             <Button as={Link} to="/admin-dashboard/users" variant="primary" className='mx-1'>Users</Button>
-            <Button as={Link} to="/admin-dashboard/Books" variant="primary" className='mx-1'>Books</Button>
-        </div>
+            <Button as={Link} to="/admin-dashboard/books" variant="primary" className='mx-1'>Books</Button>
+        </div> */}
 
         <div className='my-3 text-center mx-auto '>
-            <Button as={Link} to={"add-book"} variant="success" className=''>Add New Book</Button>
+            <Button as={Link} to={"add-book"} variant="danger" className='text-white fw-bold px-4 py-2 rounded-pill' >Add New Book</Button>
         </div>
 
         <div className='container-lg container-md' >
@@ -77,8 +77,8 @@ export default function BooksTable() {
 
                             <td className='text-center'>
                                 <div className='d-flex flex-sm-row flex-column justify-content-around gap-1'>
-                                    <Button variant='btn btn-outline-danger btn-sm' onClick={(e) => deleteBook(e, book.id)}>Delete</Button>
-                                    <Button as={Link} to={`edit-book/${book.id}`} variant='btn btn-outline-secondary btn-sm'>Edit</Button>
+                                    <Button variant='btn btn-outline-danger btn-sm' onClick={(e) => deleteBook(e, book.id)} className="fw-bold px-4 py-2 rounded-pill">Delete</Button>
+                                    <Button as={Link} to={`edit-book/${book.id}`} variant='btn btn-outline-secondary btn-sm' className="fw-bold px-4 py-2 rounded-pill">Edit</Button>
                                 </div>
                             </td>
                         </tr>

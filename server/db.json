@@ -1,34 +1,58 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": "7869",
       "username": "admin",
+      "email": "admin@gmail.com",
       "password": "admin123",
-      "admin": false
-    },
-    {
-      "id": "3",
-      "username": "jane_smith",
-      "password": "mypassword",
       "admin": true
     },
     {
-      "id": "4",
+      "id": "1110",
       "username": "jane_smith",
+      "email": "janesimth@yahoo.com",
       "password": "mypassword",
       "admin": false
     },
     {
-      "id": "5",
-      "username": "jane_smith",
+      "id": "2766",
+      "username": "Ayman",
+      "email": "ayman@yahoo.com",
       "password": "mypassword",
       "admin": false
     },
     {
-      "id": "6",
-      "username": "jane_smith",
+      "id": "560b",
+      "email": "aya@yahoo.com",
+      "password": "aya111111",
+      "admin": false
+    },
+    {
+      "id": "cb15",
+      "username": "Ahmed",
+      "email": "Ahmed@gmail.com",
       "password": "mypassword",
       "admin": false
+    },
+    {
+      "id": "f772",
+      "email": "rahma@gmail.com",
+      "password": "rahma123",
+      "admin": false
+    },
+    {
+      "id": "22e8",
+      "username": "Yasser",
+      "email": "yasser@gmail.com",
+      "password": "123412341234",
+      "admin": false
+    },
+    {
+      "id": "4271",
+      "username": "mahmoud",
+      "email": "mahmoud@email.com",
+      "password": "1020301020",
+      "admin": true
     }
   ],
   "books": [
@@ -40,7 +64,7 @@
       "year": 2019,
       "category": "Thriller",
       "image": "book1",
-      "Publisher":"Printarea Studios",
+      "Publisher": "Printarea Studios",
       "authorPhoto": "author1"
     },
     {
@@ -51,7 +75,7 @@
       "year": 2018,
       "category": "Self-Help",
       "image": "book2",
-      "Publisher":"Penguin Random House",
+      "Publisher": "Penguin Random House",
       "authorPhoto": "author2"
     },
     {
@@ -62,7 +86,7 @@
       "year": 2021,
       "category": "Science Fiction",
       "image": "book3",
-      "Publisher":"Simon and Schuster",
+      "Publisher": "Simon and Schuster",
       "authorPhoto": "author3"
     },
     {
@@ -73,7 +97,7 @@
       "year": 1960,
       "category": "Classic",
       "image": "book4",
-      "Publisher":"Simon and Schuster",
+      "Publisher": "Simon and Schuster",
       "authorPhoto": "author4"
     },
     {
@@ -84,7 +108,7 @@
       "year": 2019,
       "category": "Advanture",
       "image": "book5",
-      "Publisher":"Printarea Studios",
+      "Publisher": "Printarea Studios",
       "authorPhoto": "author1"
     },
     {
@@ -95,7 +119,7 @@
       "year": 2018,
       "category": "Self-Help",
       "image": "book6",
-      "Publisher":"HarperCollins",
+      "Publisher": "HarperCollins",
       "authorPhoto": "author2"
     },
     {
@@ -106,7 +130,7 @@
       "year": 2021,
       "category": "Sports",
       "image": "book7",
-      "Publisher":"Scholastic",
+      "Publisher": "Scholastic",
       "authorPhoto": "author3"
     },
     {
@@ -117,7 +141,7 @@
       "year": 1960,
       "category": "Thriller",
       "image": "book8",
-      "Publisher":"HarperCollins",
+      "Publisher": "HarperCollins",
       "authorPhoto": "author4"
     }
   ]

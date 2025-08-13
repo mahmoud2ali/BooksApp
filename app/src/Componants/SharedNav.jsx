@@ -69,7 +69,7 @@ function SharedNav() {
                 isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
               }
             >
-              Product
+              All Books
             </NavLink>
             <NavLink
               to="/Favorites"
@@ -91,20 +91,10 @@ function SharedNav() {
             </NavLink>
 
             {/* login featur  */}
-            {user && (
-              <NavLink
-                to="/favoriteBook"
-                className={({ isActive }) =>
-                  isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
-                }
-              >
-                Favorite Books
-              </NavLink>
-            )}
+           
           </Nav>
 
-  
-          {user ? <Logout onLogout={() => setUser(null)} /> : <LoginRegster />}
+          {user ? <Logout onLogout={() => setUser(null)} /> : ( <LoginRegster />)}
         </Navbar.Collapse>
       </Container>
     </Navbar>

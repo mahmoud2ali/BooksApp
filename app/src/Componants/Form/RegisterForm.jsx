@@ -80,7 +80,7 @@ function RegisterForm(){
     }
 
     const addUser = async () => {
-        const response =await axios.get(`http://localhost:5000/users`)
+        const response =await axios.get(`http://localhost:3000/users`)
         const users = response.data 
         setApiData(users)
         const matchUser = users.find((user) => user.email == data.email)
@@ -95,7 +95,7 @@ function RegisterForm(){
             setToast(newToast)
         }else{
             delete data.confirmPass
-            await axios.post("http://localhost:5000/users", data)
+            await axios.post("http://localhost:3000/users", data)
                 .then(res => console.log(res.data))
                 .catch(err => console.error(err));
                 console.log(data);
@@ -107,9 +107,11 @@ function RegisterForm(){
             //     type: 'success',
             // }
             // setToast(newToast)
-            localStorage.setItem("username", data.username)
-            localStorage.setItem("email", data.email)
-            localStorage.setItem("admin", data.admin)
+            // localStorage.setItem("username", data.username)
+            // localStorage.setItem("email", data.email)
+            // localStorage.setItem("admin", data.admin)
+            localStorage.setItem("user", JSON.stringify(data));
+            navigate('/', {replace: true})
             // navigate('/', {replace: true});
         }
     }

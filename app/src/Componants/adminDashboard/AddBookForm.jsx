@@ -73,10 +73,10 @@ export default function AddBookForm() {
 
 
           <FormGroup className="d-flex justify-content-end gap-2 mt-3">
-            <Button variant="primary" size="md" type="submit">
+            <Button variant="danger" className='fw-bold px-4 rounded-pill' size="md" type="submit">
               Add
             </Button>
-            <Button as={Link} to={"/admin-dashboard/books"} variant="warning" size="md">
+            <Button as={Link} to={"/admin-dashboard/books"} variant="outline-secondary" className='fw-bold px-4 rounded-pill' size="md">
               Cancel
            </Button>
         </FormGroup>

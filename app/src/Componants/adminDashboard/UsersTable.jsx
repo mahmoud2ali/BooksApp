@@ -38,7 +38,7 @@ export default function UsersTable() {
                 // console.log("user found: ", user);
                 user.admin = !user.admin;
                 
-                axios.put(`http://localhost:3000/users/${id}`, user)
+                axios.patch(`http://localhost:3000/users/${id}`, user)
                 .then(()=>{
                     setUsers(prevUsers =>
                         prevUsers.map(u => u.id === id ? user : u)
@@ -67,18 +67,19 @@ export default function UsersTable() {
 
   return (
     <>
-        <div className='my-2 text-center mx-auto '>
+        {/* <div className='my-2 text-center mx-auto '>
             <Button as={Link} to="/admin-dashboard/users" variant="primary" className='mx-1'>Users</Button>
-            <Button as={Link} to="/admin-dashboard/Books" variant="primary" className='mx-1'>Books</Button>
-        </div>
+            <Button as={Link} to="/admin-dashboard/books" variant="primary" className='mx-1'>Books</Button>
+        </div> */}
 
-        <div className='container-lg container-md' >
+        <div className='container-lg container-md my-3' >
             <h5>Users</h5>
             <Table striped bordered hover responsive>
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>User Name</th>
+                        <th>Email</th>
                         <th>Role</th>
                         <th width="120px">Action</th>
                     </tr>
@@ -88,11 +89,12 @@ export default function UsersTable() {
                         <tr key={user.id}>
                             <td>{user.id}</td>
                             <td>{user.username}</td>
+                            <td>{user.email}</td>
                             <td>{user.admin? "admin": "user"}</td>
                             <td className='text-center'>
                                 <div className='d-flex flex-sm-row flex-column justify-content-around gap-1'>
-                                    <Button variant='btn btn-outline-danger btn-sm ' onClick={e => deleteUser(e, user.id)}>Delete</Button>
-                                    <Button variant='btn btn-outline-secondary btn-sm ' onClick={ e => toggelRole(e, user.id)}>Toggel</Button>
+                                    <Button variant='btn btn-outline-danger btn-sm ' className="fw-bold px-4 py-2 rounded-pill" onClick={e => deleteUser(e, user.id)}>Delete</Button>
+                                    <Button variant='btn btn-outline-secondary btn-sm ' className="fw-bold px-4 py-2 rounded-pill" onClick={ e => toggelRole(e, user.id)}>Toggel</Button>
                                 </div>
                             </td>
                             {/* <td className='text-center'>
