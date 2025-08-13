@@ -65,6 +65,7 @@ function Forgot(){
         const checkUser = users.find((u) => u.email == data.email)
         
         if(checkUser){
+            
             axios.put(`http://localhost:5000/users/${checkUser.id}`, data)
             navigate('/login')
         }

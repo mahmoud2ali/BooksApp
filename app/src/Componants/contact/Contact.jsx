@@ -111,7 +111,7 @@ function ContactUs() {
                                     rel="noopener noreferrer"
                                     className="text-decoration-none text-dark"
                                 >
-                                    Bookstore, Cairo, Egypt
+                                    BookHup, Cairo, Egypt
                                 </a>
                             </p>
                             <div className="mt-3">

@@ -81,9 +81,7 @@ function LoginForm(){
                 localStorage.setItem("username",username)
                 localStorage.setItem("email", email)
                 localStorage.setItem("admin", admin)
-                setTimeout( () => { 
-                    navigate('/', {replace: true});
-                }, 2000)
+                navigate('/', {replace: true})
             }else{
                 const newToast = {
                     flag: true,
