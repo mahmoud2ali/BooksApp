@@ -111,9 +111,7 @@ function LoginForm(){
             localStorage.setItem("username", "Guest")
             localStorage.setItem("email", '')
             localStorage.setItem("admin", false)
-            setTimeout( () => { 
-                navigate('/', {replace: true});
-            }, 5000)
+            navigate('/', {replace: true})
     }
 
     return(
@@ -136,7 +134,7 @@ function LoginForm(){
 
                     <div className="forgot">
                         <label><input onChange={handleChange} type="checkbox" name="remmberMe" />Remmber me</label>
-                        <a href="#" target="_self">Forgot password?</a>
+                        <a href="/forgot" target="_self">Forgot password?</a>
                     </div>
 
                     <button type="submit">Login</button>
