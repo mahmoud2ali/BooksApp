@@ -66,12 +66,12 @@ function SharedNav() {
             </NavLink>
             
              <NavLink
-              to="/contact us"
+              to="/contact"
               className={({ isActive }) =>
                 isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
               }
             >
-              contact us
+              Contact us
             </NavLink>
 
           </Nav>

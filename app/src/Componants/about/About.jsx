@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
 function About() {
@@ -40,13 +40,13 @@ function About() {
 
                     {/* Authors Section */}
                     <div className="mt-5 px-4">
-                        <h2 className="fw-bold">Authors</h2>
+                        <h2 className="fw-bold">Owners</h2>
                         <p className="fs-4">
                             This project was created by:
                             <br />
                             <strong>Mina Mosaad</strong> <br />
                             <strong>Abanoub Maqqar</strong> <br />
-                            <strong>Mahmoud Mahamed</strong><br />
+                            <strong>Mahmoud Mohamed</strong><br />
                             <strong>Rahma Nasser</strong><br />
                             <strong>Esraa Adel</strong>
                         </p>

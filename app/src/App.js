@@ -13,6 +13,9 @@ import  SharedFooter from "./Componants/Sharedfooter.jsx";
 
 import LoginForm from "./Componants/Form/LoginForm.jsx";
 import RegisterForm from "./Componants/Form/RegisterForm.jsx";
+import About from "./Componants/about/About.jsx";
+import Contact from "./Componants/contact/Contact.jsx";
+
 function Layout() {
 
   const location = useLocation();
@@ -45,12 +48,18 @@ function Layout() {
             <Route path="edit-book/:id" element={<EditBookForm />} />
           </Route>
         </Route>
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/contact" element={<Contact/>} />
+
       </Routes>
        </div>
 
      
       {!hideLayout && <SharedFooter />}
        </div>
+       
   );
 }
 function App(){
