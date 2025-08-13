@@ -74,6 +74,10 @@
     accent-color: var(--textColor);
 }
 
+.wrapper .link p{
+    color: var(--textColor);
+}
+
 .wrapper .forgot a, .wrapper .link a{
     color: var(--textColor);
     text-decoration: none;
