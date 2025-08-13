@@ -38,7 +38,10 @@
       "description": "A psychological thriller about a woman who stops speaking after a shocking act of violence.",
       "author": "Alex Michaelides",
       "year": 2019,
-      "category": "Thriller"
+      "category": "Thriller",
+      "image": "book1",
+      "Publisher":"Printarea Studios",
+      "authorPhoto": "author1"
     },
     {
       "id": "2",
@@ -46,7 +49,10 @@
       "description": "A guide to building good habits and breaking bad ones with small daily improvements.",
       "author": "James Clear",
       "year": 2018,
-      "category": "Self-Help"
+      "category": "Self-Help",
+      "image": "book2",
+      "Publisher":"Penguin Random House",
+      "authorPhoto": "author2"
     },
     {
       "id": "3",
@@ -54,7 +60,10 @@
       "description": "A lone astronaut must save Earth from disaster while uncovering unexpected allies in space.",
       "author": "Andy Weir",
       "year": 2021,
-      "category": "Science Fiction"
+      "category": "Science Fiction",
+      "image": "book3",
+      "Publisher":"Simon and Schuster",
+      "authorPhoto": "author3"
     },
     {
       "id": "4",
@@ -62,39 +71,54 @@
       "description": "A novel about racial injustice and moral growth in the Deep South.",
       "author": "Harper Lee",
       "year": 1960,
-      "category": "Classic"
+      "category": "Classic",
+      "image": "book4",
+      "Publisher":"Simon and Schuster",
+      "authorPhoto": "author4"
     },
     {
       "id": "5",
-      "title": "The Silent Patient ",
+      "title": "Pushing Clouds",
       "description": "A psychological thriller about a woman who stops speaking after a shocking act of violence.",
       "author": "Alex Michaelides",
       "year": 2019,
-      "category": "Thriller"
+      "category": "Advanture",
+      "image": "book5",
+      "Publisher":"Printarea Studios",
+      "authorPhoto": "author1"
     },
     {
       "id": "6",
-      "title": "Atomic Habits",
+      "title": "Homie",
       "description": "A guide to building good habits and breaking bad ones with small daily improvements.",
       "author": "James Clear",
       "year": 2018,
-      "category": "Self-Help"
+      "category": "Self-Help",
+      "image": "book6",
+      "Publisher":"HarperCollins",
+      "authorPhoto": "author2"
     },
     {
       "id": "7",
-      "title": "Project Hail Mary",
+      "title": "Seconds",
       "description": "A lone astronaut must save Earth from disaster while uncovering unexpected allies in space.",
       "author": "Andy Weir",
       "year": 2021,
-      "category": "Science Fiction"
+      "category": "Sports",
+      "image": "book7",
+      "Publisher":"Scholastic",
+      "authorPhoto": "author3"
     },
     {
       "id": "8",
-      "title": "To Kill a Mockingbird",
+      "title": "REWORK",
       "description": "A novel about racial injustice and moral growth in the Deep South.",
       "author": "Harper Lee",
       "year": 1960,
-      "category": "Classic"
+      "category": "Thriller",
+      "image": "book8",
+      "Publisher":"HarperCollins",
+      "authorPhoto": "author4"
     }
   ]
 }

@@ -1,8 +1,4 @@
-import {
-  Container,
-  Nav,
-  Navbar,
-} from "react-bootstrap";
+import {Container,Nav,Navbar,Button,Col,Row,} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../index.css";
@@ -74,15 +70,24 @@ function SharedNav() {
               }
             >
               Product
-            </NavLink>
-
+           
             <NavLink
+              to="/Favorites"
+              className={({ isActive }) =>
+                isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
+              }
+            >
+             Favorite Books 
+            </NavLink>
+            
+             <NavLink
               to="/contact"
               className={({ isActive }) =>
                 isActive ? "nav-link text-danger fw-bold" : "nav-link textWhite"
               }
             >
-              Contact Us
+              Contact us
+
             </NavLink>
 
             {/* login featur  */}

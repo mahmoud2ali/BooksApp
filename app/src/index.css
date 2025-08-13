@@ -12,9 +12,6 @@ code {
     monospace;
 }
 
-
-
-
 /* u can use this  dont change vraiables */
 
 :root{
@@ -24,6 +21,22 @@ code {
   --black :#1e1e27;
   --black-light:#28242a;
 
+  /* global login-register style */
+    --fontFamily: "Libertinus Serif", serif;
+    --fontWBtn: 700;
+    --shadowBtn: 0 0 10px rgba(0, 0, 0, .3);
+    --bgBtn: #e2e2e2; 
+    --txtBtn: #1e1e27;
+    --bgBtnHover: #df0139;
+    --txtBtnHover: #fff;
+
+    /* special login-register style */
+    --textColor: #e2e2e2;
+    --errorColor: #df0139;
+    --BorderColor: rgba(255,255,255,.2);
+    --bgErrMsg: #df0139;
+    --txtMsg: #e2e2e2;
+    --bgSeccMsg: green;
 }
 
 
@@ -41,12 +54,12 @@ code {
   color: var(--primary-color) !important;
 }
 .bgimg{
-  background-image: url('.//../Assets/bg.jpg');
-
-  height: 80vh;
+   background-image: url('./../Assets/bg.jpg');
   background-size: cover;
   background-position: center;
   width: 100%;
+  min-height: 80vh; /* Instead of fixed height*/
+  height: auto;
   
 }
 .btnAll{
@@ -90,4 +103,114 @@ code {
   flex: 1;
 }
 
+
 /*Upper code     for my home ,navbar ,footer style    please dont change it                      */
+
+
+/* in GridBooks books-section style start*/
+/* books-section style */
+.books-section{
+  background-color: #f7f7f7;
+  color: black;
+}
+/* SingleBook style ==> card*/
+.link{
+  color: black;
+}
+.link:hover{
+  color:rgb(255, 39, 39);
+  cursor: pointer;
+}
+.p{
+  color: #eba756;
+}
+/* Favorit boxs */
+.favIcon{
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.mycard{
+  position: relative;
+}
+.FavBox{
+  position: absolute;
+  content: "";
+  top: 25px;
+  right: 25px;
+  background-color: white;
+  box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.2);
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+/* download button */
+.downloadBtn,
+.detBtn{
+  width: 190px;
+  margin: auto;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.downloadBtn:hover{
+  color: rgb(255, 39, 39) !important;
+}
+/* in GridBooks books-section style end*/
+/* BookDetails style start*/
+.book-info span{
+  color: #bdb3b3;
+  font-size: 17px;
+  font-weight: 600;
+}
+.book-info h5{
+  color: var(--black);
+  font-size: 20px;
+  font-weight: 700;
+}
+.desc{
+  color: #9c9999;
+  line-height: 1.2;
+  font-size: 20px;
+  font-weight: 200;
+}
+.detBtn:hover{
+  color: black !important;
+}
+.FavBox-2{
+  background-color: white;
+  box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, 0.2);
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+/* BookDetails style end*/
+
+
+
+ .Aboutbgimg{ 
+   background-image: url('./../Assets/m.jpeg');
+  background-size: cover;
+  background-position: center;
+  /* width: 100%; */
+  min-height: 80vh; /* Instead of fixed height*/
+  height: auto;
+  
+}
+
+/*Upper code     for my home ,navbar ,footer style    please dont change it                      */
+
