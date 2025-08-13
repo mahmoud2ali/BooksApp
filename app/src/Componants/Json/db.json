@@ -1,100 +1,47 @@
 {
   "users": [
     {
-      "id": "1",
       "username": "admin",
+      "email": "admin@gmail.com",
       "password": "admin123",
-      "admin": false
+      "admin": true,
+      "id": "7869"
     },
     {
-      "id": "3",
       "username": "jane_smith",
+      "email": "janesimth@yahoo.com",
       "password": "mypassword",
-      "admin": true
+      "admin": true,
+      "id": "1110"
     },
     {
-      "id": "4",
-      "username": "jane_smith",
+      "username": "Ayman",
+      "email": "ayman@yahoo.com",
       "password": "mypassword",
+      "admin": false,
+      "id": "2766"
+    },
+    {
+      "username": "aya",
+      "email": "aya@yahoo.com",
+      "password": "mypassword",
+      "admin": false,
+      "id": "560b"
+    },
+    {
+      "username": "Ahmed",
+      "email": "Ahmed@gmail.com",
+      "password": "mypassword",
+      "admin": false,
+      "id": "cb15"
+    },
+    {
+      "id": "f772",
+      "username": "Rahma",
+      "email": "rahma@gmail.com",
+      "password": "123123123",
+      "confirmPass": "123123123",
       "admin": false
-    },
-    {
-      "id": "5",
-      "username": "jane_smith",
-      "password": "mypassword",
-      "admin": false
-    },
-    {
-      "id": "6",
-      "username": "jane_smith",
-      "password": "mypassword",
-      "admin": false
-    }
-  ],
-  "books": [
-    {
-      "id": "1",
-      "title": "The Silent Patient ",
-      "description": "A psychological thriller about a woman who stops speaking after a shocking act of violence.",
-      "author": "Alex Michaelides",
-      "year": 2019,
-      "category": "Thriller"
-    },
-    {
-      "id": "2",
-      "title": "Atomic Habits",
-      "description": "A guide to building good habits and breaking bad ones with small daily improvements.",
-      "author": "James Clear",
-      "year": 2018,
-      "category": "Self-Help"
-    },
-    {
-      "id": "3",
-      "title": "Project Hail Mary",
-      "description": "A lone astronaut must save Earth from disaster while uncovering unexpected allies in space.",
-      "author": "Andy Weir",
-      "year": 2021,
-      "category": "Science Fiction"
-    },
-    {
-      "id": "4",
-      "title": "To Kill a Mockingbird",
-      "description": "A novel about racial injustice and moral growth in the Deep South.",
-      "author": "Harper Lee",
-      "year": 1960,
-      "category": "Classic"
-    },
-    {
-      "id": "5",
-      "title": "The Silent Patient ",
-      "description": "A psychological thriller about a woman who stops speaking after a shocking act of violence.",
-      "author": "Alex Michaelides",
-      "year": 2019,
-      "category": "Thriller"
-    },
-    {
-      "id": "6",
-      "title": "Atomic Habits",
-      "description": "A guide to building good habits and breaking bad ones with small daily improvements.",
-      "author": "James Clear",
-      "year": 2018,
-      "category": "Self-Help"
-    },
-    {
-      "id": "7",
-      "title": "Project Hail Mary",
-      "description": "A lone astronaut must save Earth from disaster while uncovering unexpected allies in space.",
-      "author": "Andy Weir",
-      "year": 2021,
-      "category": "Science Fiction"
-    },
-    {
-      "id": "8",
-      "title": "To Kill a Mockingbird",
-      "description": "A novel about racial injustice and moral growth in the Deep South.",
-      "author": "Harper Lee",
-      "year": 1960,
-      "category": "Classic"
     }
   ]
 }

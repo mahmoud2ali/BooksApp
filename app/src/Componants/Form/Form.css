@@ -3,7 +3,7 @@
 :root{
 
     /* special style */
-    --bgPage: url('../../../Assets/download.jpeg');
+    --bgPage: url('../../../Assets/bg.jpg');
 }
 *{
     margin: 0;
@@ -94,6 +94,7 @@
     font-weight: var(--fontWBtn);
     border-radius: 40px;
     font-size: 16px;
+    margin: 10px 0;
 }
 .wrapper button:hover{
     background-color: var(--bgBtnHover);

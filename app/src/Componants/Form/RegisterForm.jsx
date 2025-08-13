@@ -2,17 +2,25 @@ import './Form.css'
 import { useState } from 'react';
 import { FaUser, FaLock } from "react-icons/fa6";
 import { MdEmail } from 'react-icons/md';
-import db from '../Json/db.json';
 import { Toast, ToastContainer } from 'react-bootstrap';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterForm(){
-    const{users} = db
+    const [apiData, setApiData] = useState({
+        username: '',
+        email: '', 
+        password: '',
+        admin: false
+    })
+    const navigate = useNavigate()
 
     const [data, setData] = useState({
         username: '',
         email: '', 
         password: '',
-        confirmPass: ''
+        confirmPass: '',
+        admin: false
     });
     const [errors, setErrors] = useState({});
     
@@ -30,16 +38,13 @@ function RegisterForm(){
         type: ''
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e) => {    
+        localStorage.clear()    
         e.preventDefault();
         const newErrors = validation(data);
         setErrors(newErrors);
         if(Object.keys(newErrors).length === 0){
-            // console.log('successfully!');
             addUser()
-        }else{
-            ///////////errors 
-            console.log('failed');            
         }
     };
 
@@ -75,11 +80,14 @@ function RegisterForm(){
         return errors;
     }
 
-    const addUser = () => {
-        const findUser = users.find(user => user.username === data.username)
-        // console.log(findUser);
-        if(findUser){
-            const newToast = {
+    const addUser = async () => {
+        const response =await axios.get(`http://localhost:5000/users`)
+        const users = response.data 
+        setApiData(users)
+        const matchUser = users.find((user) => user.email == data.email)
+
+        if(matchUser){
+                const newToast = {
                 flag: true, 
                 subtitle: 'Error message',
                 title: 'This username already has an account.',
@@ -87,15 +95,22 @@ function RegisterForm(){
             }
             setToast(newToast)
         }else{
-            // add user in json file
-            users.push(data);
-            const newToast = {
-                flag: true,
-                subtitle: 'Success message', 
-                title: 'After 5 seconds, you will go to the home page',
-                type: 'success',
-            }
-            setToast(newToast)
+            await axios.post("http://localhost:5000/users", data)
+                .then(res => console.log(res.data))
+                .catch(err => console.error(err));
+            // const newToast = {
+            //     flag: true,
+            //     subtitle: 'Success message', 
+            //     title: 'After few seconds, you will go to the home page',
+            //     type: 'success',
+            // }
+            // setToast(newToast)
+            localStorage.setItem("username", data.username)
+            localStorage.setItem("email", data.email)
+            localStorage.setItem("admin", data.admin)
+            setTimeout( () => { 
+                navigate('/', {replace: true});
+            }, 2000)
         }
     }
 
@@ -107,25 +122,25 @@ function RegisterForm(){
 
                     <div className="input-box">
                         <input onChange={handleChange} type="text" name="username" value={data.username} placeholder="Username" />
-                        {/* <FaUser className='icons'/> */}
+                        <FaUser className='icons'/>
                         {errors.username && (<span className="error-msg">{errors.username}</span>)}
                     </div>
 
                     <div className="input-box">
                         <input onChange={handleChange} type="text" name="email" value={data.email} placeholder="Email" />
-                        {/* <MdEmail className='icons'/> */}
+                        <MdEmail className='icons'/>
                         {errors.email && (<span className="error-msg">{errors.email}</span>)}
                     </div>
 
                     <div className="input-box">
                         <input onChange={handleChange} type="password" name="password" value={data.password} placeholder="Password" />
-                        {/* <FaLock className='icons'/> */}
+                        <FaLock className='icons'/>
                         {errors.password && (<span className="error-msg">{errors.password}</span>)}
                     </div>
 
                     <div className="input-box">
                         <input onChange={handleChange} type="password" name="confirmPass" value={data.confirmPass} placeholder="confirm password" />
-                        {/* <FaLock className='icons'/> */}
+                        <FaLock className='icons'/>
                         {errors.confirmPass && (<span className="error-msg">{errors.confirmPass}</span>)}
                     </div>
 

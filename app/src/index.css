@@ -24,17 +24,17 @@ code {
     --fontFamily: "Libertinus Serif", serif;
     --fontWBtn: 700;
     --shadowBtn: 0 0 10px rgba(0, 0, 0, .3);
-    --bgBtn: #fff; 
-    --txtBtn: black;
-    --bgBtnHover: #e20e0e;
+    --bgBtn: #e2e2e2; 
+    --txtBtn: #1e1e27;
+    --bgBtnHover: #df0139;
     --txtBtnHover: #fff;
 
     /* special login-register style */
-    --textColor: #fff;
-    --errorColor: red;
+    --textColor: #e2e2e2;
+    --errorColor: #df0139;
     --BorderColor: rgba(255,255,255,.2);
-    --bgErrMsg: red;
-    --txtMsg: #fff;
+    --bgErrMsg: #df0139;
+    --txtMsg: #e2e2e2;
     --bgSeccMsg: green;
 }
 
@@ -53,12 +53,12 @@ code {
   color: var(--primary-color) !important;
 }
 .bgimg{
-  background-image: url('.//../Assets/bg.jpg');
-
-  height: 80vh;
+   background-image: url('./../Assets/bg.jpg');
   background-size: cover;
   background-position: center;
   width: 100%;
+  min-height: 80vh; /* Instead of fixed height*/
+  height: auto;
   
 }
 .btnAll{
@@ -101,6 +101,7 @@ code {
 .flex-grow-1 {
   flex: 1;
 }
+
 
 /*Upper code     for my home ,navbar ,footer style    please dont change it                      */
 
@@ -198,4 +199,17 @@ code {
 }
 /* BookDetails style end*/
 
+
+
+ .Aboutbgimg{ 
+   background-image: url('./../Assets/m.jpeg');
+  background-size: cover;
+  background-position: center;
+  /* width: 100%; */
+  min-height: 80vh; /* Instead of fixed height*/
+  height: auto;
+  
+}
+
+/*Upper code     for my home ,navbar ,footer style    please dont change it                      */
 

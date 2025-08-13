@@ -1,5 +1,4 @@
-// @ts-ignore
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Router } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import './App.css';
@@ -17,13 +16,19 @@ import RegisterForm from "./Componants/Form/RegisterForm.jsx";
 import GridBooks from "./pages/ViewBooks/GridBooks";
 import BookDetails from "./pages/ViewBooks/BookDetails";
 import FavoriteBooks from "./pages/FavoriteBooks";
-function App() {
+import About from "./Componants/about/About.jsx";
+import Contact from "./Componants/contact/Contact.jsx";
+
+function Layout() {
+
+  const location = useLocation();
+  const hideLayout = location.pathname === "/login" || location.pathname === "/register";
+
   return (
-    <BrowserRouter>
       <div className="d-flex flex-column min-vh-100">
 
      
-      <SharedNav />
+      {!hideLayout && <SharedNav />}
 
       <div className="flex-grow-1">
 
@@ -46,18 +51,30 @@ function App() {
             <Route path="edit-book/:id" element={<EditBookForm />} />
           </Route>
         </Route>
+
         {/* GridBooks */}
         <Route path="/product" element={<GridBooks />} />
         <Route path="/books/:id" element={<BookDetails/>} />
         <Route path="/Favorites" element={<FavoriteBooks />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/contact" element={<Contact/>} />
+
       </Routes>
        </div>
 
      
-      <SharedFooter/>
+      {!hideLayout && <SharedFooter />}
        </div>
+       
+  );
+}
+function App(){
+  return(
+    <BrowserRouter>
+      <Layout />
     </BrowserRouter>
   );
 }
-
 export default App;

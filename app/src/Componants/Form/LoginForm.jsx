@@ -1,14 +1,17 @@
-import { useState } from 'react';
-import db from '../Json/db.json';
-// import { FaLock, FaUser } from "react-icons/fa6";
+import { useEffect, useState } from 'react';
+import { FaLock} from "react-icons/fa6";
 import './Form.css'
 import { ToastContainer, Toast } from 'react-bootstrap';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { MdEmail } from 'react-icons/md';
 
 function LoginForm(){
-    const{users} = db
+    const [apiData, setApiData] = useState({email: '', password: ''})
+    const navigate = useNavigate()
 
     const [data, setData] = useState({
-        username: '', 
+        email: '', 
         password: ''
     });
     const [errors, setErrors] = useState({});
@@ -28,6 +31,7 @@ function LoginForm(){
     });
 
     const handleSubmit = (e) => {
+        localStorage.clear()
         e.preventDefault();
         const newErrors = validation(data);
         setErrors(newErrors);
@@ -42,10 +46,10 @@ function LoginForm(){
 
     const validation = (data) => {
         const errors = {};
-        if(!data.username.trim()){
-            errors.username = 'Username is required.';
-        }else if(data.username.length < 4){
-            errors.username = 'Username must be at least 4 characters.';
+        if (!data.email) {
+            errors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+            errors.email = 'Email is invalid';
         }
 
         if(!data.password.trim()){
@@ -56,34 +60,60 @@ function LoginForm(){
         return errors;
     }
 
-    const loginCheck = () => {
-        console.log(users);
-        console.log(data);
+    const loginCheck = async () => {
+        try{
+            const response = await axios.get(`http://localhost:5000/users`)
+            setApiData(response.data)
         
-        const userCheck = users.find(
-            user => user.username === data.username && user.password === data.password
-        );
-        console.log(userCheck);
-        
-        if(userCheck){
-            // alert("successfully!")
-            const newToast = {
-                flag: true,
-                subtitle: 'Success message', 
-                title: 'After 5 seconds, you will go to the home page',
-                type: 'success',
+            const matchUser = apiData.find((user) => user.email == data.email && user.password == data.password)
+            // console.log(matchUser);
+            
+            if(matchUser){
+                // const newToast = {
+                //     flag: true,
+                //     subtitle: 'Success message', 
+                //     title: 'After few seconds, you will go to the home page',
+                //     type: 'success',
+                // }
+                // setToast(newToast);
+                
+                const {username, email, admin} = matchUser;
+                localStorage.setItem("username",username)
+                localStorage.setItem("email", email)
+                localStorage.setItem("admin", admin)
+                setTimeout( () => { 
+                    navigate('/', {replace: true});
+                }, 2000)
+            }else{
+                const newToast = {
+                    flag: true,
+                    subtitle: 'Error message', 
+                    title: 'You entered the email/password incorrectly.',
+                    type: 'error',
+                }
+                setToast(newToast);
             }
-            setToast(newToast);
-        }else{
-            // alert("error happens!")
-            const newToast = {
+        }catch(e){
+            console.log(e.message)
+        }
+    }
+
+    const guestUser = (e) => {
+        e.preventDefault()
+        const newToast = {
                 flag: true,
-                subtitle: 'Error message', 
-                title: 'You entered the username/password incorrectly.',
+                subtitle: 'Hint:', 
+                title: `As a guest you cannot get all the features of the site.\n
+                After few seconds, you will go to the home page.`,
                 type: 'error',
             }
             setToast(newToast);
-        }
+            localStorage.setItem("username", "Guest")
+            localStorage.setItem("email", '')
+            localStorage.setItem("admin", false)
+            setTimeout( () => { 
+                navigate('/', {replace: true});
+            }, 5000)
     }
 
     return(
@@ -93,27 +123,30 @@ function LoginForm(){
                     <h1>Login</h1>
 
                     <div className="input-box">
-                        <input onChange={handleChange} type="text" name="username" value={data.username} placeholder="Username" />
-                        {/* <FaUser className='icons'/> */}
-                        {errors.username && (<span className="error-msg">{errors.username}</span>)}
+                        <input onChange={handleChange} type="text" name="email" value={data.email} placeholder="Email" />
+                        <MdEmail className='icons'/>
+                        {errors.email && (<span className="error-msg">{errors.email}</span>)}
                     </div>
 
                     <div className="input-box">
                         <input onChange={handleChange} type="password" name="password" value={data.password} placeholder="Password" />
-                        {/* <FaLock className='icons'/> */}
+                        <FaLock className='icons'/>
                         {errors.password && (<span className="error-msg">{errors.password}</span>)}
                     </div>
 
                     <div className="forgot">
                         <label><input onChange={handleChange} type="checkbox" name="remmberMe" />Remmber me</label>
-                        <a href="#" target="_self">Forgot passwor?</a>
+                        <a href="#" target="_self">Forgot password?</a>
                     </div>
 
                     <button type="submit">Login</button>
                     
+                    <button onClick={guestUser}>Visit as a guest!</button>
+                    
                     <div className="link">
                         <p>Don't have an account? <a href="/register" target="_self">Register</a></p>
                     </div>
+
                 </form>
             </div>
             <div>
