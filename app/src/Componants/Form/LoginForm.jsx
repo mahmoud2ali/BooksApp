@@ -4,10 +4,12 @@ import { FaLock, FaUser } from "react-icons/fa6";
 import './Form.css'
 import { ToastContainer, Toast } from 'react-bootstrap';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm(){
     // const [apiData, setapiData] = useState([]);
     const{users} = db
+    const navigate = useNavigate()
 
     // useEffect(() => {
     //     axios.get(`http://localhost:5000/users`)
@@ -77,10 +79,16 @@ function LoginForm(){
             const newToast = {
                 flag: true,
                 subtitle: 'Success message', 
-                title: 'After 5 seconds, you will go to the home page',
+                title: 'After few seconds, you will go to the home page',
                 type: 'success',
             }
             setToast(newToast);
+            localStorage.setItem("username", data.username)
+            localStorage.setItem("email", data.email)
+            localStorage.setItem("admin", data.admin)
+            setTimeout( () => { 
+                navigate('/', {replace: true});
+            }, 2000)
         }else{
             const newToast = {
                 flag: true,
@@ -105,6 +113,24 @@ function LoginForm(){
             console.error(err);
             return false;
         }
+    }
+
+    const guestUser = (e) => {
+        e.preventDefault()
+        const newToast = {
+                flag: true,
+                subtitle: 'Hint:', 
+                title: `As a guest you cannot get all the features of the site.\n
+                After few seconds, you will go to the home page.`,
+                type: 'error',
+            }
+            setToast(newToast);
+            localStorage.setItem("username", "Guest")
+            localStorage.setItem("email", '')
+            localStorage.setItem("admin", false)
+            setTimeout( () => { 
+                navigate('/', {replace: true});
+            }, 4000)
     }
 
     return(
@@ -132,9 +158,12 @@ function LoginForm(){
 
                     <button type="submit">Login</button>
                     
+                    <button onClick={guestUser}>Visit as a guest!</button>
+                    
                     <div className="link">
                         <p>Don't have an account? <a href="/register" target="_self">Register</a></p>
                     </div>
+
                 </form>
             </div>
             <div>
