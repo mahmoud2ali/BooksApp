@@ -19,7 +19,6 @@ function RegisterForm(){
         username: '',
         email: '', 
         password: '',
-        confirmPass: '',
         admin: false
     });
     const [errors, setErrors] = useState({});
@@ -95,9 +94,12 @@ function RegisterForm(){
             }
             setToast(newToast)
         }else{
+            delete data.confirmPass
             await axios.post("http://localhost:5000/users", data)
                 .then(res => console.log(res.data))
                 .catch(err => console.error(err));
+                console.log(data);
+                
             // const newToast = {
             //     flag: true,
             //     subtitle: 'Success message', 
@@ -108,9 +110,7 @@ function RegisterForm(){
             localStorage.setItem("username", data.username)
             localStorage.setItem("email", data.email)
             localStorage.setItem("admin", data.admin)
-            setTimeout( () => { 
-                navigate('/', {replace: true});
-            }, 2000)
+            // navigate('/', {replace: true});
         }
     }
 

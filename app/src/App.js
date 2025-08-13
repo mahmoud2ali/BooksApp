@@ -18,11 +18,12 @@ import BookDetails from "./pages/ViewBooks/BookDetails";
 import FavoriteBooks from "./pages/FavoriteBooks";
 import About from "./Componants/about/About.jsx";
 import Contact from "./Componants/contact/Contact.jsx";
+import Forgot from "./Componants/Form/Forgot.jsx";
 
 function Layout() {
 
   const location = useLocation();
-  const hideLayout = location.pathname === "/login" || location.pathname === "/register";
+  const hideLayout = location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/forgot";
 
   return (
       <div className="d-flex flex-column min-vh-100">
@@ -36,6 +37,7 @@ function Layout() {
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
+        <Route path="/forgot" element={<Forgot />} />
 
         {/* Public Routes */}
         <Route path="/" element={<Landing/>} />
