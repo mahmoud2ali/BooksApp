@@ -43,7 +43,7 @@ export default function BookDetails() {
     const [book, setBook] = useState(null);
   
     useEffect(() => {
-      fetch(`http://localhost:5000/books/${id}`)
+      fetch(`http://localhost:3000/books/${id}`)
         .then((res) => res.json())
         .then((data) => setBook(data))
         .catch((err) => console.error(err));
