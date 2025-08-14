@@ -62,12 +62,12 @@ function Layout() {
         {/* Admin Routes */}
         
         <Route path="/admin-dashboard">
-          <Route index element={ user?.admin ?  <AdminDashboard /> : <h1 className="text-danger text-center my-5">You are not admin!</h1>  } />
-          <Route path="users" element={user?.admin ? <UsersTable /> : <h1 className="text-danger text-center my-5">You are not admin!</h1>} />
+          <Route index element={ user?.admin ?  <AdminDashboard /> : <h1 className="text-danger text-center my-5">Not Authurized</h1>  } />
+          <Route path="users" element={user?.admin ? <UsersTable /> : <h1 className="text-danger text-center my-5">Not Authurized</h1>} />
           <Route path="books">
-            <Route index element= { user?.admin ?   <BooksTable /> : <h1 className="text-danger text-center my-5">You are not admin!</h1>} />
-            <Route path="add-book" element={ user?.admin ?   <AddBookForm /> : <h1 className="text-danger text-center my-5">You are not admin!</h1> } />
-            <Route path="edit-book/:id" element={ user?.admin ?   <EditBookForm /> : <h1 className="text-danger text-center my-5">You are not admin!</h1> } />
+            <Route index element= { user?.admin ?   <BooksTable /> : <h1 className="text-danger text-center my-5">Not Authurized</h1>} />
+            <Route path="add-book" element={ user?.admin ?   <AddBookForm /> : <h1 className="text-danger text-center my-5">Not Authurized</h1> } />
+            <Route path="edit-book/:id" element={ user?.admin ?   <EditBookForm /> : <h1 className="text-danger text-center my-5">Not Authurized</h1> } />
           </Route>
         </Route>
 

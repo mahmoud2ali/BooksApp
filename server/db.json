@@ -22,12 +22,6 @@
       "admin": false
     },
     {
-      "id": "560b",
-      "email": "aya@yahoo.com",
-      "password": "aya111111",
-      "admin": false
-    },
-    {
       "id": "cb15",
       "username": "Ahmed",
       "email": "Ahmed@gmail.com",
@@ -48,11 +42,10 @@
       "admin": false
     },
     {
-      "id": "4271",
-      "username": "mahmoud",
       "email": "mahmoud@email.com",
-      "password": "1020301020",
-      "admin": true
+      "password": "102030102030",
+      "confirmPass": "102030102030",
+      "id": "4271"
     },
     {
       "id": "331b",
@@ -60,12 +53,19 @@
       "email": "abc@em.com",
       "password": "1020301020",
       "admin": false
+    },
+    {
+      "id": "19cb",
+      "username": "ali ",
+      "email": "ali@email.com",
+      "password": "1020301020",
+      "admin": false
     }
   ],
   "books": [
     {
       "id": "1",
-      "title": "The Silent Patient ",
+      "title": "The Silent Patient",
       "description": "A psychological thriller about a woman who stops speaking after a shocking act of violence.",
       "author": "Alex Michaelides",
       "year": 2019,

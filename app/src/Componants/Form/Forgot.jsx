@@ -60,13 +60,13 @@ function Forgot(){
 
     const updateUser = async () => {
         try{
-        const response = await axios.get(`http://localhost:5000/users`)
+        const response = await axios.get(`http://localhost:3000/users`)
         const users = response.data
         const checkUser = users.find((u) => u.email == data.email)
         
         if(checkUser){
             
-            axios.put(`http://localhost:5000/users/${checkUser.id}`, data)
+            axios.put(`http://localhost:3000/users/${checkUser.id}`, data)
             navigate('/login')
         }
         else{

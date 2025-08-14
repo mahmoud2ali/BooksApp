@@ -71,6 +71,8 @@ function SharedNav() {
             >
               All Books
             </NavLink>
+           
+           {user && (
             <NavLink
               to="/Favorites"
               className={({ isActive }) =>
@@ -79,6 +81,7 @@ function SharedNav() {
             >
              Favorite Books 
             </NavLink>
+          )}
             
              <NavLink
               to="/contact"

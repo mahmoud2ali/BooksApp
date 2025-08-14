@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -15,7 +16,7 @@ function Home() {
   Every book is a new journey waiting for you.<br />
   Choose your book and start your adventure.
 </p>
-<Button 
+<Button as={Link} to={"/about"}
   variant="danger" 
   className="btnAll textWhite mt-5 px-4 py-2 fs-5 rounded-pill d-block mx-auto"
 >
