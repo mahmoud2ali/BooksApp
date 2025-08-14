@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { IoIosHeartEmpty } from "react-icons/io";
 import { Button,Card } from '../../../node_modules/react-bootstrap/esm/index';
 import book1 from "../../images/b1.webp";
@@ -9,10 +9,49 @@ import book5 from "../../images/book5.jpg";
 import book6 from "../../images/book6.jpg";
 import book7 from "../../images/book7.jpg";
 import book8 from "../../images/book8.jpg";
-import { Link } from 'react-router-dom';
+import book12 from "../../images/book12.jpg";
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SingleBook({book,isFav,toggleFavorite}) {
   const[Exist,setExist]=useState(false);
+  const navigate=useNavigate();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+  const handleFavourites=()=>{
+      if(user && user !== "Guest"){
+        toggleFavorite(book);
+      }
+      else{
+        navigate("/login")
+      }
+  };
+  const[message,setMessage]=useState("");
+  const handleDownloading=()=>{
+    if(user && user !== "Guest"){
+       setMessage(
+        <span>
+        <span className="text-danger text-bold">"{book.title}" </span>Downloading....
+        </span>
+       );
+       setTimeout(()=>{
+        setMessage(
+          <span>
+          <span className="text-danger text-bold">"{book.title}" </span>Downloaded successfuly!
+          </span>
+         );
+         setTimeout(()=> setMessage(""), 2000);
+       },3000);
+    }
+    else{
+      navigate("/login")
+    }
+};
   const images={
     book1,
     book2,
@@ -21,10 +60,13 @@ export default function SingleBook({book,isFav,toggleFavorite}) {
     book5,
     book6,
     book7,
-    book8
+    book8,
+    book12
   };
   return (
-       <Card 
+    <div className="wrap">
+      {message&&<p className="message p-3 border border-1 bg-primary-subtle rounded-3">{message}</p>}
+      <Card 
        className="myCard pt-3 px-3" 
        style={{ width: '18rem' }} 
        onMouseEnter={()=> setExist(true)}
@@ -37,20 +79,21 @@ export default function SingleBook({book,isFav,toggleFavorite}) {
         {/* Favorite button */}
         <div 
         className="FavBox"
-        onClick={()=> toggleFavorite(book)}
+        onClick={handleFavourites}
         style={{backgroundColor: isFav? "#ff1e4b":"white", cursor:"pointer"}}>
         <IoIosHeartEmpty
          className={`favIcon w-75 h-75 fs-1 ${isFav ? "text-light":"text-secondary" }`} />
           </div>
           {/* Download button */}
           <Button 
+          onClick={handleDownloading}
           style={{
             backgroundColor:"black",
             border:"1px solid #1a1668",
             position: "absolute",
             bottom: "-25px",
             left: "50%",
-            transform: `translateX(-50%) ${Exist ? "translateY(0)" : "translateY(10px)"}`,
+            transform: `${Exist ? "translateY(0)" : "translateY(10px)"}`,
             opacity: Exist ? 1 : 0,
             transition: "opacity 0.5s ease, transform 0.5s ease"
           }}
@@ -58,6 +101,6 @@ export default function SingleBook({book,isFav,toggleFavorite}) {
               Download Now
           </Button>
       </Card>
-
+    </div>
   )
 }

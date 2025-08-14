@@ -9,6 +9,8 @@ import book5 from "../../images/book5.jpg";
 import book6 from "../../images/book6.jpg";
 import book7 from "../../images/book7.jpg";
 import book8 from "../../images/book8.jpg";
+import book12 from "../../images/book12.jpg";
+
 // Auther images
 import author1 from "../../images/Alex.jpg";
 import author2 from "../../images/James.jpg";
@@ -17,10 +19,9 @@ import author4 from "../../images/Harper-Lee.jpg";
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { IoIosHeartEmpty } from 'react-icons/io';
+// import { IoIosHeartEmpty } from 'react-icons/io';
 
 export default function BookDetails() {
-    const[isFav,setFav]=useState(false);
     const bookImages={
         book1,
         book2,
@@ -29,7 +30,8 @@ export default function BookDetails() {
         book5,
         book6,
         book7,
-        book8
+        book8,
+        book12
       };
       const authorImages={
         author1,
