@@ -59,7 +59,6 @@
       "username": "ali ",
       "email": "ali@email.com",
       "password": "1020301020",
-      "admin": false
     }
   ],
   "books": [
@@ -150,6 +149,17 @@
       "image": "book8",
       "Publisher": "HarperCollins",
       "authorPhoto": "author4"
+    },
+    {
+      "id": "9",
+      "title": "A Heavy Life",
+      "description": "A guide to building good habits and breaking bad ones with small daily improvements.",
+      "author": "James Clear",
+      "year": 2018,
+      "category": "Story",
+      "image": "book12",
+      "Publisher": "HarperCollins",
+      "authorPhoto": "author2"
     }
   ]
 }

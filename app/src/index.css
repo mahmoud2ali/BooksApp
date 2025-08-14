@@ -151,7 +151,7 @@ code {
 .downloadBtn,
 .detBtn{
   width: 190px;
-  margin: auto;
+  margin-left: -90px;
   margin-top: -20px;
   margin-bottom: 10px;
   color: white;
@@ -166,7 +166,15 @@ code {
 .downloadBtn:hover{
   color: rgb(255, 39, 39) !important;
 }
-/* in GridBooks books-section style end*/
+.wrap{
+  position: relative;
+}
+.message{
+  position: absolute;
+  content: "";
+  top: -80px;
+  left: -80px;
+}
 /* BookDetails style start*/
 .book-info span{
   color: #bdb3b3;
@@ -199,6 +207,7 @@ code {
   -o-border-radius: 5px;
 }
 /* BookDetails style end*/
+/* in GridBooks books-section style end*/
 
 
 
