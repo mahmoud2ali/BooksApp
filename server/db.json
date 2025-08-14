@@ -60,6 +60,13 @@
       "email": "abc@em.com",
       "password": "1020301020",
       "admin": false
+    },
+    {
+      "id": "d016",
+      "username": "Esraa Adel",
+      "email": "esraaadelfadel@gmail.com",
+      "password": "123456789",
+      "admin": false
     }
   ],
   "books": [
