@@ -35,13 +35,13 @@ export default function SingleBook({book,isFav,toggleFavorite}) {
   const handleDownloading=()=>{
     if(user && user !== "Guest"){
        setMessage(
-        <span>
+        <span className="bg-primary-subtle p-3 border border-3 border-primary-subtle  rounded-3 fs-6">
         <span className="text-danger text-bold">"{book.title}" </span>Downloading....
         </span>
        );
        setTimeout(()=>{
         setMessage(
-          <span>
+          <span className="bg-success-subtle p-3 border border-3 border-success-subtle  rounded-3 fs-6">
           <span className="text-danger text-bold">"{book.title}" </span>Downloaded successfuly!
           </span>
          );
@@ -65,7 +65,7 @@ export default function SingleBook({book,isFav,toggleFavorite}) {
   };
   return (
     <div className="wrap">
-      {message&&<p className="message p-3 border border-1 bg-primary-subtle rounded-3">{message}</p>}
+      {message&&<p className="message">{message}</p>}
       <Card 
        className="myCard pt-3 px-3" 
        style={{ width: '18rem' }} 

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation, Router } from "react-router-dom";
+import { BrowserRouter , Routes, Route, useLocation} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect } from 'react';
 import './App.css';

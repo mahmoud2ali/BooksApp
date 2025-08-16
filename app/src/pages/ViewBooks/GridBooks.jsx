@@ -7,7 +7,7 @@ export default function GridBooks() {
       const[books ,setBooks]=useState([]);
       useEffect(()=>{
         fetch("http://localhost:3000/books")
-        .then(response=>response.json())
+        .then(response=>response.json()) 
         .then(data=>setBooks(data))
         .catch(error=> console.error('Error :',error));
       },[]);

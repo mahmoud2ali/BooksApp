@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 // book images
 import book1 from "../../images/b1.webp";
 import book2 from "../../images/b2.jpeg";
@@ -22,6 +22,36 @@ import { Button } from 'react-bootstrap';
 // import { IoIosHeartEmpty } from 'react-icons/io';
 
 export default function BookDetails() {
+  const navigate=useNavigate();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+  const[message,setMessage]=useState("");
+  const handleDownloading=()=>{
+    if(user && user !== "Guest"){
+       setMessage(
+        <span className="bg-primary-subtle p-3 border border-3 border-primary-subtle  rounded-3 fs-6">
+        <span className="text-danger text-bold">"{book.title}" </span>Downloading....
+        </span>
+       );
+       setTimeout(()=>{
+        setMessage(
+          <span className="bg-success-subtle p-3 border border-3 border-success-subtle  rounded-3 fs-6">
+          <span className="text-danger text-bold">"{book.title}" </span>Downloaded successfuly!
+          </span>
+         );
+         setTimeout(()=> setMessage(""), 2000);
+       },3000);
+    }
+    else{
+      navigate("/login")
+    }
+  }
     const bookImages={
         book1,
         book2,
@@ -91,8 +121,10 @@ export default function BookDetails() {
                 quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
                 </p>
            </div>
-        <div className="btns d-flex flex-row px-5 justify-content-end">
+           <div className="btnDetail">
+        {message&&<p className="message">{message}</p>}
         <Button 
+         onClick={handleDownloading}
           style={{
             backgroundColor: "#df0139",
             border:"1px solid #df0139",
@@ -101,13 +133,7 @@ export default function BookDetails() {
           className={`detBtn py-2 mt-1  mx-md-auto mx-sm-auto m-xauto`}>
               Download Now
           </Button>
-          {/* <div className="FavBox-2"
-            onClick={()=> setFav(!isFav)}
-            style={{backgroundColor: isFav? "#ff1e4b":"white", cursor:"pointer"}}>
-            <IoIosHeartEmpty
-            className={`favIcon w-75 h-75 fs-1 ${isFav ? "text-light":"text-secondry" }`} />
-          </div> */}
-        </div>
+          </div>
             </div>
         </div>
       </div>

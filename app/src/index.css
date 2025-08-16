@@ -166,14 +166,17 @@ code {
 .downloadBtn:hover{
   color: rgb(255, 39, 39) !important;
 }
-.wrap{
+.wrap,
+.btnDetail{
   position: relative;
 }
-.message{
+.message
+{
   position: absolute;
   content: "";
-  top: -80px;
+  top: -45px;
   left: -80px;
+  z-index: 9;
 }
 /* BookDetails style start*/
 .book-info span{
